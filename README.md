@@ -1,6 +1,6 @@
-# Le jeu 💘
+# Le Grand Soir ✦
 
-Petit jeu web personnel (voir `claude.md` pour le brief complet).
+Expérience web narrative personnelle (voir `claude.md` pour le brief complet).
 
 ## Stack
 

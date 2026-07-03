@@ -1,20 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Baloo_2 } from "next/font/google";
+import { Fraunces, Outfit } from "next/font/google";
 import "./globals.css";
 
-const baloo = Baloo_2({
-  variable: "--font-baloo",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Pour toi 💌",
-  description: "Un petit jeu rien que pour toi ✨",
+  title: "Le Grand Soir",
+  description: "Une invitation pas comme les autres ✦",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ff9ec4",
+  themeColor: "#100e1e",
 };
 
 export default function RootLayout({
@@ -23,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${baloo.variable} h-full antialiased`}>
+    <html lang="fr" className={`${fraunces.variable} ${outfit.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

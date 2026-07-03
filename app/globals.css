@@ -1,101 +1,126 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette kawaii pastel — voir claude.md */
-  --color-rose: #ff9ec4;
-  --color-rose-vif: #ff6aa8;
-  --color-lilas: #c8a2ff;
-  --color-menthe: #8ee6c8;
-  --color-soleil: #ffd66b;
-  --color-encre: #6b4a5c;
-  --color-coton: #fff0f6;
+  /* Nuit étoilée — voir claude.md */
+  --color-nuit: #100e1e;
+  --color-nuit-claire: #1c1731;
+  --color-plume: #f4eef8;
+  --color-blush: #ffb3c6;
+  --color-or: #ffd88a;
+  --color-lavande: #b3a4f5;
+  --color-brume: #9fe3cd;
 
-  --font-sans: var(--font-baloo), "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
 
-  --radius-console: 2rem;
-  --radius-bubble: 1.25rem;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade: fade 1.2s ease both;
+  --animate-carton: carton 3.6s ease-in-out both;
+  --animate-lueur: lueur 3.4s ease-in-out infinite;
+  --animate-trace: trace 2.8s ease-out forwards;
+  --animate-comete: comete 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scintille: scintille 2.8s ease-in-out infinite;
 
-  /* Ombres portées épaisses colorées */
-  --shadow-pop: 0 6px 0 0 var(--color-rose-vif);
-  --shadow-pop-lilas: 0 6px 0 0 var(--color-lilas);
-  --shadow-pop-menthe: 0 5px 0 0 var(--color-menthe);
-
-  --animate-float: float 3.5s ease-in-out infinite;
-  --animate-pop: pop 0.4s cubic-bezier(0.2, 1.6, 0.4, 1) both;
-  --animate-rise: rise 6s linear infinite;
-  --animate-wobble: wobble 1.8s ease-in-out infinite;
-  --animate-fly: fly 2.4s ease-in forwards;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
     }
-    50% {
-      transform: translateY(-12px);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  @keyframes pop {
+  @keyframes fade {
     from {
-      transform: scale(0);
       opacity: 0;
     }
     to {
-      transform: scale(1);
       opacity: 1;
     }
   }
 
-  @keyframes rise {
+  /* Carton de cinématique : entre, tient, sort */
+  @keyframes carton {
     0% {
-      transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(10px);
+      filter: blur(6px);
+    }
+    18%,
+    78% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-8px);
+      filter: blur(4px);
+    }
+  }
+
+  @keyframes lueur {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes trace {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes comete {
+    0% {
+      transform: translate(-140px, 90px) rotate(-24deg) scale(0.8);
       opacity: 0;
     }
     12% {
-      opacity: 0.7;
+      opacity: 1;
     }
-    85% {
-      opacity: 0.3;
+    80% {
+      opacity: 1;
     }
     100% {
-      transform: translateY(-620px);
+      transform: translate(180px, -110px) rotate(-24deg) scale(1);
       opacity: 0;
     }
   }
 
-  @keyframes wobble {
+  @keyframes scintille {
     0%,
     100% {
-      transform: rotate(-3deg);
+      opacity: 0.4;
+      transform: scale(0.92);
     }
     50% {
-      transform: rotate(3deg);
-    }
-  }
-
-  @keyframes fly {
-    0% {
-      transform: translate(-130px, 90px) rotate(14deg);
-      opacity: 0;
-    }
-    15% {
       opacity: 1;
-    }
-    85% {
-      opacity: 1;
-    }
-    100% {
-      transform: translate(170px, -150px) rotate(-10deg);
-      opacity: 0;
+      transform: scale(1.06);
     }
   }
 }
 
+:root {
+  --accent: #ffb3c6;
+}
+
 body {
-  background: var(--color-coton);
-  color: var(--color-encre);
+  background: var(--color-nuit);
+  color: var(--color-plume);
   font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--color-nuit);
 }
 
 @media (prefers-reduced-motion: reduce) {
