@@ -21,6 +21,10 @@
   --shadow-pop-menthe: 0 5px 0 0 var(--color-menthe);
 
   --animate-float: float 3.5s ease-in-out infinite;
+  --animate-pop: pop 0.4s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+  --animate-rise: rise 6s linear infinite;
+  --animate-wobble: wobble 1.8s ease-in-out infinite;
+  --animate-fly: fly 2.4s ease-in forwards;
 
   @keyframes float {
     0%,
@@ -29,6 +33,61 @@
     }
     50% {
       transform: translateY(-12px);
+    }
+  }
+
+  @keyframes pop {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.7;
+    }
+    85% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-620px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes wobble {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  @keyframes fly {
+    0% {
+      transform: translate(-130px, 90px) rotate(14deg);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(170px, -150px) rotate(-10deg);
+      opacity: 0;
     }
   }
 }

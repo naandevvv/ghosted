@@ -1,4 +1,4 @@
-# Opération charme 💖
+# Le jeu 💘
 
 Petit jeu web personnel (voir `claude.md` pour le brief complet).
 

@@ -9,7 +9,7 @@ const baloo = Baloo_2({
 });
 
 export const metadata: Metadata = {
-  title: "Opération charme",
+  title: "Pour toi 💌",
   description: "Un petit jeu rien que pour toi ✨",
 };
 
