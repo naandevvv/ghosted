@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette kawaii pastel — voir claude.md */
+  --color-rose: #ff9ec4;
+  --color-rose-vif: #ff6aa8;
+  --color-lilas: #c8a2ff;
+  --color-menthe: #8ee6c8;
+  --color-soleil: #ffd66b;
+  --color-encre: #6b4a5c;
+  --color-coton: #fff0f6;
+
+  --font-sans: var(--font-baloo), "Baloo 2", ui-rounded, system-ui, sans-serif;
+
+  --radius-console: 2rem;
+  --radius-bubble: 1.25rem;
+
+  /* Ombres portées épaisses colorées */
+  --shadow-pop: 0 6px 0 0 var(--color-rose-vif);
+  --shadow-pop-lilas: 0 6px 0 0 var(--color-lilas);
+  --shadow-pop-menthe: 0 5px 0 0 var(--color-menthe);
+
+  --animate-float: float 3.5s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+}
+
+body {
+  background: var(--color-coton);
+  color: var(--color-encre);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
