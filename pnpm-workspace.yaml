@@ -4,3 +4,6 @@ ignoredBuiltDependencies:
 onlyBuiltDependencies:
   - esbuild
   - workerd
+# Sécurité supply-chain : refuse les paquets publiés il y a moins de 24 h,
+# et garde le lockfile compatible avec les pnpm qui appliquent cette règle.
+minimumReleaseAge: 1440
